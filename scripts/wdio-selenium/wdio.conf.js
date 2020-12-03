@@ -10,9 +10,7 @@ exports.config = {
         },
     ],
     runner: 'local',
-    specs: [
-        './scripts/wdio-selenium/test/specs/**/*.js'
-    ],
+    specs: ["./scripts/wdio-selenium/test/specs/benchmark-danube-sync.js"],
     maxInstances: 1,
     logLevel: 'info',
     bail: 0,
