@@ -1,0 +1,28 @@
+{
+  "name": "benchmarks",
+  "version": "1.0.0",
+  "description": "Benchmarking scripts for Puppeteer, Playwright, WebDriverIO (running against standalone Selenium server and devtools).",
+  "main": "node_cypress.js",
+  "dependencies": {
+    "cypress": "^6.2.1",
+    "expect-playwright": "^0.3.0",
+    "nightwatch": "^1.5.1",
+    "playwright": "^1.5.2",
+    "webdriverio": "^6.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ragog/headless-benchmarks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ragog/headless-benchmarks/issues"
+  },
+  "homepage": "https://github.com/ragog/headless-benchmarks#readme"
+}

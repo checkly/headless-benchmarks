@@ -1,6 +1,7 @@
 const { env } = require('process');
 
 describe('Checkly', () => {
+
     it('should create and delete a new API check', () => {
 
         browser.setTimeout({ 'implicit': 15000 })
@@ -41,7 +42,7 @@ describe('Checkly', () => {
         });
 
         browser.$('.setup-teardown > .form-section > span > .form-group > .custom-select').click()
-        browser.$('.setup-teardown .custom-select option[value="15"]').click()
+        browser.$('.setup-teardown .custom-select option[value="6395"]').click()
         browser.$('.container > .row > .col-sm-12 > .form > .btn').click()
         browser.$('#run-check-modal__BV_body_ > div > div > .text-center > .btn').click()
 
@@ -57,6 +58,7 @@ describe('Checkly', () => {
         browser.waitUntil(() => $('.home-dash-check-row-title').isDisplayed())
 
     });
+
 });
 
 

@@ -1,0 +1,5 @@
+{
+    "integrationFolder": "scripts/cypress",
+    "video": false,
+    "defaultCommandTimeout": 15000
+}
