@@ -5,6 +5,7 @@ Benchmarking scripts for Puppeteer, Playwright, WebDriverIO (running against sta
 ## Setup
 
 Install the needed packages using `npm i`
+For WebDriverIO Selenium runs you will also need to run `./node_modules/.bin/selenium-standalone install` 
 
 ## Running the benchmarks
 
@@ -15,6 +16,12 @@ Scripts are in place for each website+tool combination.
 ```./bench-danube-plwr.sh 1000 my-label```
 
 Timings and logs for each run are stored under `results`.
+
+### Selenium-based runs
+
+Make sure you have a running Selenium server on your machine before kicking off Selenium scripts:
+
+```./node_modules/.bin/selenium-standalone install start```
 
 ### Environment variables
 

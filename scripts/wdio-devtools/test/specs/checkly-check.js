@@ -42,7 +42,7 @@ describe('Checkly', () => {
         });
 
         browser.$('.setup-teardown > .form-section > span > .form-group > .custom-select').click()
-        browser.$(`.setup-teardown .custom-select option[value="${process.env.SNIPPED_ID}"]`).click()
+        browser.$(`.setup-teardown .custom-select option[value="${process.env.SNIPPET_ID}"]`).click()
         browser.$('.container > .row > .col-sm-12 > .form > .btn').click()
         browser.$('#run-check-modal__BV_body_ > div > div > .text-center > .btn').click()
 
