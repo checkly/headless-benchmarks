@@ -1,7 +1,7 @@
 context('Actions', () => {
 
   it('checkly snippet test', () => {
-    cy.visit('https://app-test.checklyhq.com/')
+    cy.visit('')
     cy.get('input[name="email"]').type(Cypress.env('EMAIL'))
     cy.get('input[type="password"]').type(Cypress.env('PASSWORD'))
     cy.get('.auth0-lock-submit').click()

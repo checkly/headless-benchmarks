@@ -6,11 +6,11 @@ describe('Checkly', () => {
 
         browser.setTimeout({ 'implicit': 15000 })
 
-        browser.url('https://app-test.checklyhq.com/')
+        browser.url(process.env.URL)
 
         browser.waitUntil(() => $('.auth0-lock-submit').isDisplayed())
         browser.$('input[name="email"]').click()
-        browser.$('input[name="email"]').setValue('giovanni+bench@checklyhq.com')
+        browser.$('input[name="email"]').setValue(process.env.EMAIL)
         browser.$('input[type="password"]').click()
         browser.$('input[type="password"]').setValue(process.env.PASSWORD)
         browser.$('.auth0-lock-submit').click()
@@ -42,7 +42,7 @@ describe('Checkly', () => {
         });
 
         browser.$('.setup-teardown > .form-section > span > .form-group > .custom-select').click()
-        browser.$('.setup-teardown .custom-select option[value="6395"]').click()
+        browser.$(`.setup-teardown .custom-select option[value="${process.env.SNIPPET_ID}"]`).click()
         browser.$('.container > .row > .col-sm-12 > .form > .btn').click()
         browser.$('#run-check-modal__BV_body_ > div > div > .text-center > .btn').click()
 

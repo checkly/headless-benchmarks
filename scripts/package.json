@@ -16,10 +16,7 @@
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
     "cypress": "^6.2.1",
     "playwright": "^1.6.2",
-    "playwright-video": "^2.4.0",
-    "puppeteer": "^5.5.0"
-  },
-  "dependencies": {
+    "puppeteer": "^5.5.0",
     "jest": "^26.6.3"
   }
 }

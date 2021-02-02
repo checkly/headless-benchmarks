@@ -1,7 +1,7 @@
 context('Actions', () => {
 
   it('checkly snippet test', () => {
-    cy.visit('https://app-test.checklyhq.com/')
+    cy.visit('')
     cy.get('input[name="email"]').type(Cypress.env('EMAIL'))
     cy.get('input[type="password"]').type(Cypress.env('PASSWORD'))
     cy.get('.auth0-lock-submit').click()
@@ -12,7 +12,7 @@ context('Actions', () => {
     cy.get('.mb-3:nth-child(4) > .d-flex > .btn').click()
     cy.get('#add-alert-channels-modal__BV_body_ .btn-no-focus').click()
 
-    cy.get('input[name="email"]').type('giovanni+bench@checklyhq.com')
+    cy.get('input[name="email"]').type(Cypress.env('EMAIL'))
  
     cy.get('#add-email-alert-button').click()
     cy.get('.octicon-trash').click({ force: true })

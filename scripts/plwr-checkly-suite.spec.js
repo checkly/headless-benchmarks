@@ -1,20 +1,23 @@
 const { chromium } = require('playwright');
-const { saveVideo } = require('playwright-video');
 
 let browser
 let page
-let capture
+let email
+let password
+let snippetId
+let url
 
 beforeAll(async () => {
-  
-  capture = await saveVideo(page, 'recording.mp4');
-
+  email = process.env.EMAIL
+  password = process.env.PASSWORD
+  snippetId = process.env.SNIPPET_ID
+  url = process.env.URL
 })
 
 beforeEach(async () => {
   browser = await chromium.launch()
   page = await browser.newPage()
-  await page.goto('https://app-test.checklyhq.com/')
+  await page.goto(url)
 })
 
 describe('Checkly Tests', () => {
@@ -24,8 +27,8 @@ describe('Checkly Tests', () => {
     await page.setViewportSize({ width: 1366, height: 768 })
 
     await page.waitForSelector('input[name="email"]', { visible: true })
-    await page.type('input[name="email"]', process.env.EMAIL)
-    await page.type('input[type="password"]', process.env.PASSWORD)
+    await page.type('input[name="email"]', email)
+    await page.type('input[type="password"]', password)
     await page.click('.auth0-lock-submit')
     
     await page.waitForSelector('#create-check-button__BV_button_')
@@ -34,7 +37,7 @@ describe('Checkly Tests', () => {
     await page.click('.mb-3:nth-child(4) > .d-flex > .btn')
     await page.click('#add-alert-channels-modal__BV_body_ .btn-no-focus')
 
-    await page.type('input[name="email"]', 'giovanni+bench@checklyhq.com')
+    await page.type('input[name="email"]', email)
     
     await page.click('#add-email-alert-button')
     await page.click('.octicon-trash')
@@ -47,8 +50,8 @@ describe('Checkly Tests', () => {
   test('Creates snippet',async () => {
     
     await page.waitForSelector('input[name="email"]', { visible: true })
-    await page.type('input[name="email"]', process.env.EMAIL)
-    await page.type('input[type="password"]', process.env.PASSWORD)
+    await page.type('input[name="email"]', email)
+    await page.type('input[type="password"]', password)
     await page.click('.auth0-lock-submit')
     
     await page.waitForSelector('#create-check-button__BV_button_')
@@ -75,8 +78,8 @@ describe('Checkly Tests', () => {
       await page.setViewportSize({ width: 1920, height: 1080 })
     
       await page.waitForSelector('input[name="email"]', { visible: true })
-      await page.type('input[name="email"]', 'giovanni+bench@checklyhq.com')
-      await page.type('input[type="password"]', process.env.PASSWORD)
+      await page.type('input[name="email"]', email)
+      await page.type('input[type="password"]', password)
       await page.click('.auth0-lock-submit')
       
       await page.click('#create-check-button__BV_button_')
@@ -107,7 +110,7 @@ describe('Checkly Tests', () => {
       });
     
       await page.click('.setup-teardown > .form-section > span > .form-group > .custom-select')
-      await page.selectOption('.setup-teardown > .form-section > span > .form-group > .custom-select', '74')
+      await page.selectOption('.setup-teardown > .form-section > span > .form-group > .custom-select', snippetId)
       await page.click('.container > .row > .col-sm-12 > .form > .btn')
       await page.click('#run-check-modal__BV_body_ > div > div > .text-center > .btn')
     
@@ -136,8 +139,4 @@ describe('Checkly Tests', () => {
 
   afterEach(async () => {
     await browser.close()
-  })
-
-  afterAll(async () => {
-    await capture.stop()
   })

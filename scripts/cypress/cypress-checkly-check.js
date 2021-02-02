@@ -1,8 +1,8 @@
 context('Actions', () => {
 
   it('checkly test', () => {
-    cy.visit('https://app-test.checklyhq.com/')
-    cy.get('input[name="email"]').type('giovanni+bench@checklyhq.com')
+    cy.visit('')
+    cy.get('input[name="email"]').type(Cypress.env('EMAIL'))
     cy.get('input[type="password"]').type(Cypress.env('PASSWORD'))
     cy.get('.auth0-lock-submit').click()
 
@@ -23,7 +23,7 @@ context('Actions', () => {
     cy.get('li[tabindex="0"]').first().click()
     cy.get('li[tabindex="1"]').first().click()
 
-    cy.get('.setup-teardown > .form-section > span > .form-group > .custom-select').select('72')
+    cy.get('.setup-teardown > .form-section > span > .form-group > .custom-select').select('6395')
 
     cy.get('.container > .row > .col-sm-12 > .form > .btn').click()
 

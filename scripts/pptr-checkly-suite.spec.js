@@ -2,11 +2,22 @@ const puppeteer = require('puppeteer');
 
 let browser
 let page
+let url
+let email
+let password
+let snippetId
+
+beforeAll(async () => {
+  email = process.env.EMAIL
+  password = process.env.PASSWORD
+  snippetId = process.env.SNIPPET_ID
+  url = process.env.URL
+})
 
 beforeEach(async () => {
   browser = await puppeteer.launch()
   page = await browser.newPage()
-  await page.goto('https://app-test.checklyhq.com/')
+  await page.goto(url)
 })
 
 describe('Checkly Tests', () => {
@@ -16,8 +27,8 @@ describe('Checkly Tests', () => {
     await page.setViewport({ width: 1366, height: 768 })
 
     await page.waitForSelector('input[name="email"]', { visible: true })
-    await page.type('input[name="email"]', process.env.EMAIL)
-    await page.type('input[type="password"]', process.env.PASSWORD)
+    await page.type('input[name="email"]', email)
+    await page.type('input[type="password"]', password)
     await page.click('.auth0-lock-submit')
 
     await page.waitForSelector('#create-check-button__BV_button_')
@@ -30,7 +41,7 @@ describe('Checkly Tests', () => {
     await page.click('#add-alert-channels-modal__BV_body_ .btn-no-focus')
 
     await page.waitForSelector('input[name="email"]')
-    await page.type('input[name="email"]', 'giovanni+bench@checklyhq.com')
+    await page.type('input[name="email"]', email)
 
     await page.waitForSelector('#add-email-alert-button')
     await page.click('#add-email-alert-button')
@@ -48,8 +59,8 @@ describe('Checkly Tests', () => {
   test('Creates snippet',async () => {
 
     await page.waitForSelector('input[name="email"]', { visible: true })
-    await page.type('input[name="email"]', process.env.EMAIL)
-    await page.type('input[type="password"]', process.env.PASSWORD)
+    await page.type('input[name="email"]', email)
+    await page.type('input[type="password"]', password)
     await page.click('.auth0-lock-submit')
     
     await page.waitForSelector('#create-check-button__BV_button_')
@@ -83,8 +94,8 @@ describe('Checkly Tests', () => {
       await page.setViewport({ width: 1920, height: 1080 })
     
       await page.waitForSelector('input[name="email"]', { visible: true })
-      await page.type('input[name="email"]', process.env.EMAIL)
-      await page.type('input[type="password"]', process.env.PASSWORD)
+      await page.type('input[name="email"]', email)
+      await page.type('input[type="password"]', password)
       await page.click('.auth0-lock-submit')
       
       await page.waitForSelector('#create-check-button__BV_button_')
@@ -135,7 +146,7 @@ describe('Checkly Tests', () => {
       await page.waitForSelector('.setup-teardown > .form-section > span > .form-group > .custom-select')
       await page.click('.setup-teardown > .form-section > span > .form-group > .custom-select')
       
-      await page.select('.setup-teardown > .form-section > span > .form-group > .custom-select', '74')
+      await page.select('.setup-teardown > .form-section > span > .form-group > .custom-select', snippetId)
       
       await page.waitForSelector('.container > .row > .col-sm-12 > .form > .btn', {visible: true})
       await page.evaluate(() => {

@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch({})
   const page = await browser.newPage()
   
-  await page.goto('https://app-test.checklyhq.com/')
+  await page.goto(process.env.URL)
 
   await page.setViewport({ width: 1366, height: 768 })
 
@@ -22,7 +22,7 @@ const puppeteer = require('puppeteer');
   await page.click('#add-alert-channels-modal__BV_body_ .btn-no-focus')
 
   await page.waitForSelector('input[name="email"]')
-  await page.type('input[name="email"]', 'giovanni+bench@checklyhq.com')
+  await page.type('input[name="email"]', process.env.EMAIL)
   
   await page.waitForSelector('#add-email-alert-button')
   await page.click('#add-email-alert-button')
