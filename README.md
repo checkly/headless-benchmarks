@@ -2,29 +2,44 @@
 
 Benchmarking scripts for Puppeteer, Playwright, WebDriverIO (running against standalone Selenium server and devtools) and Cypress.
 
+## Setup
+
+Install the needed packages using `npm i`
+
 ## Running the benchmarks
 
-Scripts are in place for each website+tool combination. You only need to provide a number of iterations and a label for your run, e.g.:
+Scripts are in place for each website+tool combination.
+
+ You only need to provide a number of iterations and a label for your run, e.g.:
 
 ```./bench-danube-plwr.sh 1000 my-label```
 
 Timings and logs for each run are stored under `results`.
 
-### Selecting which scenario to run
+### Environment variables
 
-All automation scripts are included for each tool. Depending on the tool you run, you might need to adjust some config parameters to only run the scripts you are interested in.
+Depending on the scenario you decide to run, you will need to set certain environment variables.
 
-#### Puppeteer and Playwright
+Scripts running against Danube are already set up to export credentials for you as follows: 
 
-tbd
+```
+export USER_EMAIL=user@email.com
+export USER_PASSWORD=supersecure1
+```
 
-#### WebDriverIO (Selenium and DevTools)
+Scripts running against Checkly will require you to set the following:
 
-The `wdio.conf.js` file inside of each wdio folder contains the `specs` option. Use it to include which specs to run, e.g. for a complete suite running against Checkly: `specs: ["./scripts/wdio-selenium/test/specs/checkly-*.js"]`
+```
+export URL=https://app.checklyhq.com
+export EMAIL=<your checkly email>
+export PASSWORD=<your checkly password>
+```
 
-#### Cypress
+Additionally, the checkly-check scenario (check creation) will need the additional variable to be set to the id of a placeholder snippet created on Checkly:
 
-tbd
+```
+export SNIPPET_ID=<your placeholder snippet id>
+```
 
 ## Automation scripts
 
