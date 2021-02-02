@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
   const browser = await chromium.launch()
   const page = await browser.newPage()
   
-  await page.goto('https://app-test.checklyhq.com/')
+  await page.goto(process.env.URL)
   
   await page.waitForSelector('input[name="email"]', { visible: true })
   await page.type('input[name="email"]', process.env.EMAIL)

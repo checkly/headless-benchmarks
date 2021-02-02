@@ -5,12 +5,12 @@ const {chromium} = require('playwright');
     const context = await browser.newContext()
     const page = await context.newPage()
     
-    await page.goto('https://app-test.checklyhq.com/')
+    await page.goto(process.env.URL)
     
     await page.setViewportSize({ width: 1920, height: 1080 })
   
     await page.waitForSelector('input[name="email"]', { visible: true })
-    await page.type('input[name="email"]', 'giovanni+bench@checklyhq.com')
+    await page.type('input[name="email"]', process.env.EMAIL)
     await page.type('input[type="password"]', process.env.PASSWORD)
     await page.click('.auth0-lock-submit')
     
@@ -42,7 +42,7 @@ const {chromium} = require('playwright');
     });
   
     await page.click('.setup-teardown > .form-section > span > .form-group > .custom-select')
-    await page.selectOption('.setup-teardown > .form-section > span > .form-group > .custom-select', '72')
+    await page.selectOption('.setup-teardown > .form-section > span > .form-group > .custom-select', process.env.SNIPPET_ID)
     await page.click('.container > .row > .col-sm-12 > .form > .btn')
     await page.click('#run-check-modal__BV_body_ > div > div > .text-center > .btn')
   
