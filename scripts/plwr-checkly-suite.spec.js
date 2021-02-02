@@ -2,21 +2,16 @@ const { chromium } = require('playwright');
 
 let browser
 let page
-let capture
 let email
 let password
 let snippetId
 let url
 
 beforeAll(async () => {
-  
-  capture = await saveVideo(page, 'recording.mp4');
-
   email = process.env.EMAIL
   password = process.env.PASSWORD
   snippetId = process.env.SNIPPET_ID
   url = process.env.URL
-
 })
 
 beforeEach(async () => {
@@ -144,8 +139,4 @@ describe('Checkly Tests', () => {
 
   afterEach(async () => {
     await browser.close()
-  })
-
-  afterAll(async () => {
-    await capture.stop()
   })

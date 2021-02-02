@@ -9,6 +9,6 @@ export TIMEFMT=$'%*E'
 
 # run argument_1 times and print time result to file with id argument_2 
 for i in {1..$1}; do
- { echo $i && time node --unhandled-rejections=strict ../theheadless.dev/blog/snippets/puppeteer/login.js } 2>> results/performance/pptr-danube-login-$1-$2.txt
- echo $? >> results/exit-status/plwr-danube-$1-$2-status.txt
+ { echo $i && time node --unhandled-rejections=strict scripts/pptr-danube-login.js } 2>> results/performance/pptr-danube-login-$1-$2.txt
+ echo $? >> results/exit-status/pptr-danube-$1-$2-status.txt
 done
