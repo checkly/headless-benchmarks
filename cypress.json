@@ -1,5 +1,6 @@
 {
     "integrationFolder": "scripts/cypress",
+    "baseUrl": "https://app-test.checklyhq.com/",
     "video": false,
     "defaultCommandTimeout": 15000
 }
