@@ -3,14 +3,14 @@ exports.config = {
     automationProtocol: "webdriver",
     capabilities: [
         {
-        browserName: 'chrome',
-        'goog:chromeOptions': {
-            args: [ "--headless" ]
-        },
+            browserName: 'chrome',
+            'goog:chromeOptions': {
+                args: [ "--headless" ]
+            },  
         },
     ],
     runner: 'local',
-    specs: ["./scripts/wdio-selenium/test/specs/benchmark-danube-sync.js"],
+    specs: ["./scripts/wdio-selenium/test/specs/*.js"],
     maxInstances: 1,
     logLevel: 'info',
     bail: 0,

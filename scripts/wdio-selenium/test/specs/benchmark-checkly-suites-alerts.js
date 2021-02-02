@@ -6,7 +6,7 @@ describe('Checkly', () => {
 
         browser.setTimeout({ 'implicit': 15000 })
 
-        browser.url('https://app-test.checklyhq.com/')
+        browser.url(process.env.URL)
 
         browser.waitUntil(() => $('.auth0-lock-submit').isDisplayed())
         browser.$('input[name="email"]').click()

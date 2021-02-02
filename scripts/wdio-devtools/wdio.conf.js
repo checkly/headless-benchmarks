@@ -8,7 +8,7 @@ exports.config = {
     },
   ],
   runner: "local",
-  specs: ["./scripts/wdio-devtools/test/specs/benchmark-danube-sync.js"],
+  specs: ["./scripts/wdio-devtools/test/specs/*.js"],
   maxInstances: 1,
   logLevel: "info",
   bail: 0,

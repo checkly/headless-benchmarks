@@ -1,12 +1,11 @@
 const { env } = require('process');
 
 describe('Checkly', () => {
-
     it('should create and delete a new alert channel', () => {
 
         browser.setTimeout({ 'implicit': 15000 })
 
-        browser.url(process.env.URL)
+        browser.url('https://app-test.checklyhq.com/')
 
         browser.waitUntil(() => $('.auth0-lock-submit').isDisplayed())
         browser.$('input[name="email"]').click()
@@ -30,7 +29,6 @@ describe('Checkly', () => {
         browser.waitUntil(() => $('.text-uppercase').isDisplayed())
 
     });
-
 });
 
 
