@@ -21,7 +21,7 @@ Timings and logs for each run are stored under `results`.
 
 Make sure you have a running Selenium server on your machine before kicking off Selenium scripts:
 
-```./node_modules/.bin/selenium-standalone install start```
+```./node_modules/.bin/selenium-standalone start```
 
 ### Environment variables
 
