@@ -23,7 +23,7 @@ context('Actions', () => {
     cy.get('li[tabindex="0"]').first().click()
     cy.get('li[tabindex="1"]').first().click()
 
-    cy.get('.setup-teardown > .form-section > span > .form-group > .custom-select').select('6395')
+    cy.get('.setup-teardown > .form-section > span > .form-group > .custom-select').select(Cypress.env('SNIPPET_ID'))
 
     cy.get('.container > .row > .col-sm-12 > .form > .btn').click()
 

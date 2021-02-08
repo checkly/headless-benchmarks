@@ -9,6 +9,6 @@ export TIMEFMT=$'%*E'
 
 # run argument_1 times and print time result to file with id argument_2 
 for i in {1..$1}; do
- { echo $i && time ./node_modules/.bin/wdio ./scripts/wdio-selenium/wdio.conf.js --spec ./scripts/wdio-selenium/test/specs/danube-login.js } >> results/logs/wdio-danube-$1-$2-log.txt 2>> results/performance/wdio-danube-$1-$2.txt
- echo $? >> results/exit-status/wdio-danube-$1-$2-status.txt
+ { echo $i && time ./node_modules/.bin/wdio ./scripts/wdio-selenium/wdio.conf.js --spec ./scripts/wdio-selenium/test/specs/danube-login.js } >> results/logs/wdio-webdriver-danube-$1-$2-log.txt 2>> results/performance/wdio-webdriver-danube-$1-$2.txt
+ echo $? >> results/exit-status/wdio-webdriver-danube-$1-$2-status.txt
 done

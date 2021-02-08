@@ -4,6 +4,8 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
+  await page.goto(process.env.URL)
+
   await page.waitForSelector('input[name="email"]', { visible: true })
   await page.type('input[name="email"]', process.env.EMAIL)
   await page.type('input[type="password"]', process.env.PASSWORD)
@@ -86,4 +88,6 @@ const puppeteer = require('puppeteer');
 
   await page.waitForSelector('.modal-dialog .btn-danger', {hidden: true})
 
-})
+  await browser.close()
+
+})()
