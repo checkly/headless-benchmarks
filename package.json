@@ -1,7 +1,7 @@
 {
   "name": "benchmarks",
   "version": "1.0.0",
-  "description": "Benchmarking scripts for Puppeteer, Playwright, WebDriverIO (running against standalone Selenium server and devtools).",
+  "description": "Benchmarking scripts for Puppeteer, Playwright, Cypress, WebDriverIO (running against standalone Selenium server and devtools).",
   "main": "node_cypress.js",
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
