@@ -23,6 +23,8 @@ export USER_EMAIL=user@email.com
 export USER_PASSWORD=supersecure1
 ```
 
+When running Cypress, remember to export the above variables with the `CYPRESS_` prefix added, e.g. `CYPRESS_USER_EMAIL=...`.
+
 ### For scripts running against Checkly
 
 Before kicking off any benchmarks against Checkly, create a placeholder check, as well as a placeholder snippet (note the id of the snippet, which is displayed at the end of the URL on the snippet page, e.g. `https://app.checklyhq.com/snippets/6395`)
@@ -35,6 +37,8 @@ export EMAIL=<your checkly email>
 export PASSWORD=<your checkly password>
 export SNIPPET_ID=<your placeholder snippet id>
 ```
+
+When running Cypress, remember to export the above variables with the `CYPRESS_` prefix added, e.g. `CYPRESS_EMAIL=...`.
 
 **Note: like most production web applications under active development, Checkly changes very often. Therefore, you might need to adjust your scripts (especially selectors) to reflect the latest changes.** 
 
